@@ -2,10 +2,15 @@
     .card
         .card-header Splitter Table
         .card-body
-            button.btn.btn-outline-info.float-right.mb-3(
-                data-toggle="modal"
-                data-target="#helpModal"
-            ) Help
+            .float-right.mb-3
+                button.btn.btn-outline-info(
+                    data-toggle="modal"
+                    data-target="#helpModal"
+                ) Help
+                | 
+                button.btn.btn-outline-danger(
+                    @click.passive="names = []; lines = []"
+                ) Reset
             table.table.table-bordered
                 thead
                     tr

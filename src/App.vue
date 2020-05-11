@@ -10,6 +10,10 @@
         .card
             .card-header Debt Solver
             .card-body
+                .text-right.mb-3
+                    button.btn.btn-outline-danger(
+                        @click.passive="debts = [{debtor: '', amount: 0, creditor: ''}]"
+                    ) Reset
                 .row(v-for="(r, i) in debts", :key="i")
                     .input-group.col
                         input.form-control(
@@ -50,7 +54,7 @@
                                     href="#"
                                     @click.prevent="r.debtor = n"
                                 ) {{n}}
-                    button.btn.btn-outline-danger(
+                    button.btn.btn-outline-danger.remove-debt(
                         @click.passive="debts.splice(i, 1)"
                         :disabled="debts.length === 1"
                     ) #[span.fas.fa-times]
@@ -162,6 +166,6 @@ export default defineComponent({
 .debt-text
     line-height 2
 
-.btn-outline-danger
+.remove-debt
     margin-right 15px
 </style>
