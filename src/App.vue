@@ -5,7 +5,10 @@
             |
             a.btn.btn-outline-primary.float-right(href="https://lixquid.com").
                 lixquid.com
+        SplitterTable.mb-3(@debt-export="debts = $event")
+
         .card
+            .card-header Debt Solver
             .card-body
                 .row(v-for="(r, i) in debts", :key="i")
                     .input-group.col
@@ -67,14 +70,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "@vue/composition-api";
+import SplitterTable from "./components/SplitterTable.vue";
 import { chain } from "lodash";
-interface IDebt {
-    debtor: string;
-    creditor: string;
-    amount: number;
-}
+import { IDebt } from "./types";
 
 export default defineComponent({
+    components: {
+        SplitterTable
+    },
     setup() {
         const debts = ref<IDebt[]>([
             {
@@ -141,10 +144,15 @@ export default defineComponent({
             return transactions;
         });
 
+        function debtExport(ev: unknown) {
+            debugger;
+        }
+
         return {
             debts,
             allNames,
-            resolvedDebts
+            resolvedDebts,
+            debtExport
         };
     }
 });
