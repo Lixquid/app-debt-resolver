@@ -104,7 +104,6 @@ export default defineComponent({
                 balances[e.debtor] -= e.amount;
                 balances[e.creditor] += e.amount;
             });
-            console.log(balances);
 
             // Assign values
             const transactions: IDebt[] = [];
@@ -117,7 +116,6 @@ export default defineComponent({
                     if (balances[creditor] <= 0) {
                         return;
                     }
-                    console.log(debtor, creditor);
                     if (-balances[debtor] > balances[creditor]) {
                         // creditor out of credit
                         transactions.push({
@@ -137,7 +135,6 @@ export default defineComponent({
                         balances[creditor] += balances[debtor];
                         balances[debtor] = 0;
                     }
-                    console.log(balances);
                 });
             });
 
