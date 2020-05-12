@@ -151,8 +151,7 @@ export default defineComponent({
         return {
             debts,
             allNames,
-            resolvedDebts,
-            debtExport
+            resolvedDebts
         };
     }
 });
