@@ -148,10 +148,6 @@ export default defineComponent({
             return transactions;
         });
 
-        function debtExport(ev: unknown) {
-            debugger;
-        }
-
         return {
             debts,
             allNames,
